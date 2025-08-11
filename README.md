@@ -8,22 +8,23 @@
 - **Fecha:** 6 de agosto de 2025
 
 ## Resumen de la Solución
-Sobrevivir a base de las diapositivas y Google para poder dockerizar una aplicación de node, ya que poco y nada se de docker. :)
+Sobrevivir a base de las diapositivas y Google para poder dockerizar una aplicación de node, ya que poco y nada sé de docker. :)
+El objetivo principal fue lograr que la aplicación proporcionada corriera dentro de un contenedor
 
 ## Dockerfile
 Lo que hice fue revisar en Google como crear un Dockerfile para una aplicación nodejs y una vez revise al menos 3 páginas, empece a escribir el Dockerfile, una vez que tenía este archivo procedí a construir la imagen con el comando 
 
-´´
+ ```bash
 docker build -t docker-evaluation .
-´´
+ ```
 ![alt text](image.png)
 Al principio me fallo, pero, una vez abrí Docker Desktop se soluciono el error de conexión.
 
 Una vez que se termino la construcción de la imagen procedí a ejecutar un contenedor de esa imagen con el siguiente comando:
 
-´´
+ ```bash
 docker run -p 3000:3000 docker-evaluation
-´´
+ ```
 ![alt text](image-1.png)
 
 Ya que el contenedor funciono fui a http://localhost:3000 y mire que si mostrará el mensaje de bienvenida de la aplicación
@@ -33,15 +34,20 @@ Funciono así que lo deje así y me puse a ver los otros puntos como actividad d
 
 
 ## Script de Automatización
-[Describe cómo funciona tu script y las funcionalidades implementadas]
+El script desarrollado realiza los siguientes pasos:
+1. Verifica si Docker está instalado.
+2. Construye la imagen Docker de forma automática.
+3. Ejecuta el contenedor mapeando el puerto externo 8080 al interno 3000.
+4. Configura las variables de entorno `PORT=8080` y `NODE_ENV=production`.
+5. **Intenta** realizar una prueba básica para verificar que el servicio responde. (No lo logré, siempre entra en la condición de que la aplicación no funciona como debería)
 
 ## Principios DevOps Aplicados
-1. [Principio 1]
-2. [Principio 2]
-3. [Principio 3]
+1. **Automatización:** mediante el script para construcción y ejecución de la imagen
+2. **Consistencia en entornos:** Docker garantiza que la aplicación corra de la misma forma en cualquier máquina
+3. **Feedback rápido:** El script intenta validar el estado de la aplicación inmediatamente después de ejecutarse (Aunque no logré mapear bien la respuesta)
 
 ## Captura de Pantalla
-[Incluye al menos una captura de pantalla que muestre tu aplicación funcionando en el contenedor]
+![alt text](image-3.png)
 
 ## Mejoras Futuras
 Saber del tema desde antes de ponerlo en práctica :)
